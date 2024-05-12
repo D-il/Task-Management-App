@@ -10,7 +10,7 @@ class TaskDatabaseHelper(context: Context):SQLiteOpenHelper(context, DATABASE_NA
 
     companion object{
         private const val DATABASE_NAME= "notes.app.db"
-        private const val DATABASE_VERSION= "1"
+        private const val DATABASE_VERSION= 1
         private const val TABLE_NAME= "allnotes"
         private const val COLUMN_ID= "id"
         private const val COLUMN_TITLE= "title"
