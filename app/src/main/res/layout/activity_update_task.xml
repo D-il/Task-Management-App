@@ -11,27 +11,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-
-
-    <TextView
-        android:id="@+id/addTaskHeading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/poppins"
-        android:text="Add Task"
-        android:textColor="@color/darkgreen"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        />
-
         <TextView
-            android:id="@+id/title"
+            android:id="@+id/edittaskHeading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/addTaskHeading"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/poppins"
+            android:text="Edit Task"
+            android:textColor="@color/darkgreen"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/edittitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edittaskHeading"
             android:layout_marginStart="16dp"
             android:layout_marginTop="28dp"
             android:fontFamily="@font/poppins"
@@ -39,111 +36,115 @@
             android:textColor="@color/darkgreen"
             android:textSize="20sp" />
 
-
-    <EditText
-        android:id="@+id/titleEditText"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:hint="Enter the title."
-        android:padding="12dp"
-        android:textSize="20sp"
-        android:layout_below="@id/title"
-        android:background="@drawable/darkgreen_border"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="15dp"
-        android:maxLines="1"
-        android:fontFamily="@font/poppins"
-        android:layout_marginEnd="16dp"
-        />
+        <EditText
+            android:id="@+id/edittitleText"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_below="@+id/edittitle"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/darkgreen_border"
+            android:hint="Enter the title"
+            android:maxLines="1"
+            android:fontFamily="@font/poppins"
+            android:padding="12dp"
+            android:textSize="20sp"
+            android:layout_marginEnd="16dp"/>
 
         <TextView
-            android:id="@+id/description"
+            android:id="@+id/editdescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/titleEditText"
+            android:layout_below="@+id/edittitleText"
             android:layout_marginStart="16dp"
             android:layout_marginTop="28dp"
             android:fontFamily="@font/poppins"
             android:text="Task Description"
             android:textColor="@color/darkgreen"
             android:textSize="20sp" />
+
         <EditText
-            android:id="@+id/descriptionEdit"
+            android:id="@+id/editdescriptionText"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_below="@+id/description"
+            android:layout_below="@+id/editdescription"
             android:layout_marginStart="16dp"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/darkgreen_border"
-            android:hint="Enter the description"
+            android:hint="Enter the Description"
             android:maxLines="1"
             android:padding="12dp"
             android:textSize="20sp" />
+
         <TextView
-            android:id="@+id/priority"
+            android:id="@+id/editpriority"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/descriptionEdit"
+            android:layout_below="@+id/editdescriptionText"
             android:layout_marginStart="16dp"
             android:layout_marginTop="28dp"
             android:fontFamily="@font/poppins"
             android:text="Task Priority"
             android:textColor="@color/darkgreen"
             android:textSize="20sp" />
+
         <EditText
-            android:id="@+id/priorityEdit"
+            android:id="@+id/editprioritytext"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_below="@+id/priority"
+            android:layout_below="@+id/editpriority"
             android:layout_marginStart="16dp"
             android:layout_marginTop="15dp"
-            android:layout_marginEnd="16dp"
             android:background="@drawable/darkgreen_border"
             android:hint="Enter the priority"
             android:maxLines="1"
+            android:fontFamily="@font/poppins"
             android:padding="12dp"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:layout_marginEnd="16dp"/>
+
         <TextView
-            android:id="@+id/deadline"
+            android:id="@+id/editdeadline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/priorityEdit"
+            android:layout_below="@+id/editprioritytext"
             android:layout_marginStart="16dp"
             android:layout_marginTop="28dp"
             android:fontFamily="@font/poppins"
             android:text="Task Deadline"
             android:textColor="@color/darkgreen"
             android:textSize="20sp" />
+
+
         <EditText
-            android:id="@+id/deadlineEdit"
+            android:id="@+id/editdeadlinetext"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_below="@+id/deadline"
+            android:layout_below="@+id/editdeadline"
             android:layout_marginStart="16dp"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/darkgreen_border"
-            android:hint="Enter the deadline"
+            android:hint="Enter deadline"
             android:maxLines="1"
             android:padding="12dp"
             android:textSize="20sp" />
 
         <ImageView
-            android:id="@+id/savebutton"
+            android:id="@+id/updatesaveButton"
             android:layout_width="81dp"
             android:layout_height="69dp"
+            android:layout_below="@+id/editdeadlinetext"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="144dp"
-            android:layout_marginTop="3dp"
-            android:layout_below="@+id/deadlineEdit"
-            android:layout_marginEnd="184dp"
-            android:layout_marginBottom="144dp"
-            android:src="@drawable/baseline_cloud_done_24"/>
+            android:layout_marginStart="72dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="84dp"
+            android:layout_marginBottom="94dp"
+            android:src="@drawable/outline_box_edit_24" />
 
-        />
 
-</RelativeLayout>
+    </RelativeLayout>
 </ScrollView>
