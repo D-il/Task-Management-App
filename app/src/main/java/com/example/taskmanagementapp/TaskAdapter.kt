@@ -10,7 +10,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
-class TaskAdapter (private  var task:List<Task>,context: Context):RecyclerView.Adapter<TaskAdapter.TaskViewHolder>(){
+class TaskAdapter (private  var task:List<Task>,context: Context):
+    RecyclerView.Adapter<TaskAdapter.TaskViewHolder>(){
 
     private val db:TaskDatabaseHelper= TaskDatabaseHelper(context)
     class TaskViewHolder(itemView:View):RecyclerView.ViewHolder(itemView){
@@ -23,11 +24,11 @@ class TaskAdapter (private  var task:List<Task>,context: Context):RecyclerView.A
 
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):TaskAdapter.TaskViewHolder {
         val view=LayoutInflater.from(parent.context).inflate(R.layout.task_item,parent,false)
         return TaskViewHolder(view)
     }
-    override fun onBindViewHolder(holder: TaskViewHolder, position: Int)
+    override fun onBindViewHolder(holder: TaskAdapter.TaskViewHolder, position: Int)
     {
         val task=task[position]
         holder.titleTextView.text=task.title
@@ -36,7 +37,7 @@ class TaskAdapter (private  var task:List<Task>,context: Context):RecyclerView.A
         holder.deadlineTextView.text=task.deadline
 
         holder.updateButton.setOnClickListener {
-         val intent: Intent =Intent(holder.itemView.context,UpdateTask::class.java).apply {
+         val intent =Intent(holder.itemView.context,UpdateTask::class.java).apply {
                 putExtra("task_id",task.id)
             }
             holder.itemView.context.startActivity(intent)
