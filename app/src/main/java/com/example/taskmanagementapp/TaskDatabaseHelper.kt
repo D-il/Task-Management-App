@@ -81,21 +81,31 @@ class TaskDatabaseHelper(context: Context):SQLiteOpenHelper(context, DATABASE_NA
         db.update(TABLE_NAME, values, whereClause, whereArgs)
         db.close()
     }
-    fun getTaskById(taskId: Int): Task {
+    fun getTaskById(taskId: Int): Task? {
         val db = readableDatabase
         val query = "SELECT * FROM $TABLE_NAME WHERE $COLUMN_ID=$taskId"
         val cursor = db.rawQuery(query, null)
         cursor.moveToFirst()
 
-        val id = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID))
-        val title = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TITLE))
-        val description = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_DESCRIPTION))
-        val priority = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PRIORITY))
-        val deadline = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_DEADLINE))
+        var task:Task? = null
+        cursor.use {
+            if (it.moveToFirst()){
+                val id = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID))
+                val title = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TITLE))
+                val description = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_DESCRIPTION))
+                val priority = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PRIORITY))
+                val deadline = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_DEADLINE))
 
-        cursor.close()
-        db.close()
-        return Task(id, title, description, priority, deadline)
+                task = Task(id,title,description,priority,deadline)
+
+            }
+            cursor.close()
+            db.close()
+            return task
+        }
+
+
+
     }
     fun deleteTask(taskId: Int) {
         val db = writableDatabase

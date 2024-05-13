@@ -22,22 +22,45 @@ class UpdateTask : AppCompatActivity() {
             finish()
             return
         }
-        val task=db.getTaskById(taskId )
-        binding.edittitleText.setText(task.title)
-        binding.editdescriptionText.setText(task.description)
-        binding.editprioritytext.setText(task.priority)
-        binding.editdeadlinetext.setText(task.deadline)
 
-        binding.updatesaveButton.setOnClickListener{
-            val newtitle=binding.edittitleText.text.toString()
-            val newdescription=binding.editdescriptionText.text.toString()
-            val newpriority=binding.editprioritytext.text.toString()
-            val newdeadline=binding.editdeadlinetext.text.toString()
-            val updatetask=Task(taskId,newtitle,newdescription,newpriority,newdeadline)
-            db.updateTask(updatetask)
-            finish()
-            Toast.makeText(this,"Change Saved",Toast.LENGTH_SHORT).show()
+
+
+        val task=db.getTaskById(taskId )
+
+        if (task != null){
+            binding.edittitleText.setText(task.title)
+            binding.editdescriptionText.setText(task.description)
+            binding.editprioritytext.setText(task.priority)
+            binding.editdeadlinetext.setText(task.deadline)
+
+            binding.updatesaveButton.setOnClickListener{
+                val newtitle=binding.edittitleText.text.toString()
+                val newdescription=binding.editdescriptionText.text.toString()
+                val newpriority=binding.editprioritytext.text.toString()
+                val newdeadline=binding.editdeadlinetext.text.toString()
+
+                if (newtitle.isNotEmpty() && newdescription.isNotEmpty() && newpriority.isNotEmpty() && newdeadline.isNotEmpty()){
+                    val updateTask = Task(taskId,newtitle,newdescription,newpriority,newdeadline)
+                    db.updateTask(updateTask)
+
+                    Toast.makeText(this, "Note update successfully", Toast.LENGTH_SHORT).show()
+                    finish()
+                }
+                else{
+                    Toast.makeText(this, "Please fill the fields", Toast.LENGTH_SHORT).show()
+                }
+
+            }
+
         }
+        else{
+            Toast.makeText(this, "Invalid", Toast.LENGTH_SHORT).show()
+            finish()
+        }
+
+
+
+
 
     }
 }

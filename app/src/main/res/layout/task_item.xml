@@ -67,16 +67,16 @@
             android:text="Deadline"
             android:textColor="@color/darkgreen" />
         <ImageView
-            android:id="@+id/updatebtn"
+            android:id="@+id/updateButton"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="67dp"
-            android:src="@drawable/outline_box_edit_24" />
+            android:src="@drawable/baseline_border_color_24" />
 
         <ImageView
-            android:id="@+id/deletebtn"
+            android:id="@+id/deleteButton"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_alignParentEnd="true"
